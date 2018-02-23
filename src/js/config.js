@@ -8,9 +8,12 @@ import localizedEnglish from '../i18n/localized-en.json';
  * 
  * The angular config function used to configure the application.
  * 
- * @author Derek R. Melvin (demelvin@gmail.com)
+ * See {@link https://docs.angularjs.org/api/ng/type/angular.Module#config}.
+ * 
+ * @author Derek R. Melvin (https://github.com/demelvin)
+ * 
  */
-const config = ($urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
+const AppConfig = ($urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
 	'ngInject';
 	
 	const DEFAULT_ROUTE = '/';	
@@ -54,4 +57,4 @@ const config = ($urlRouterProvider, $locationProvider, $translateProvider, local
 	
 };
 
-export default config;
+export default AppConfig;
