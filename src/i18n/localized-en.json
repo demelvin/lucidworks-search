@@ -1,3 +1,14 @@
 {
-	"HELLO_WORLD": "Whats up Derek"
+	"COMMON": {
+		"TITLE": "QVino",
+		"FAVORITES": "Favorites",
+		"HISTORY": "History"
+	},
+	"SEARCH": {
+		"PLACEHOLDER": "Search by wines, wineries, and tasters",
+		"ALL" : "All",
+		"TITLE": "Title",
+		"WINERY": "Winery",
+		"TASTER": "Taster"
+	}
 }
