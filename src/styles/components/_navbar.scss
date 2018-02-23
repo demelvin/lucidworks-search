@@ -1,0 +1,133 @@
+/* 
+ * _navbar.scss
+ * 
+ * Contains styles related to the navigation bar.
+ */
+ 
+ $icon-width: 48px;
+ $icon-height: 48px;
+ 
+ /* --- navbar -- */
+.navbar {
+	@include flex;
+	position: fixed;
+    height: 75px;
+	width: 100%;
+    justify-content: flex-start;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $white;
+    text-transform: uppercase;
+    
+    border-bottom: 1px solid #CCC;
+    
+    a {
+    	transition: .35s;
+    	&:hover {
+    		@include opacity(.65);
+    	}
+    }
+    
+    /* --- logo -- */
+	.logo-wrapper {
+		@include flex;
+		@include align(center);
+		
+		.logo {
+			@include flex;
+			position: relative;
+		    text-decoration: none;
+		    margin-top: 5px;
+		    margin-bottom: 5px;	    
+		    
+		    .img {
+				width: $icon-width;
+				height: $icon-height;
+			    
+			    &:after {
+			    	position: absolute;
+					content: "";
+					width: $icon-width;
+					height: $icon-height;
+					background-image: url('../images/wine.svg');
+					background-image: url('../images/wine.svg'), none;
+			    }
+			    
+		    }
+		    
+		    .title {
+			    align-self: center;
+			    white-space: nowrap;
+			    margin-left: 10px;
+			    font-weight: $font-weight-xbold;
+		    }
+		}
+	}
+	/* --- /logo -- */
+	
+	/* --- menu -- */
+	.nav-menu {
+		@include flex;
+		@include align(center);
+		padding-left: 25px;
+		padding-right: 25px;
+		text-align: center;
+		
+		.nav-menu-list {
+			@include flex;
+			margin: 0;
+			align-self: center;
+			
+			.nav-menu-list-item {
+				@include font-size(14);
+				display: inline-block;
+				font-weight: $font-weight-xbold;
+				
+				.item {
+					@include flex;
+					flex-wrap: nowrap;
+					padding: 20px 12px;
+					color: $grey-light;
+					
+					&:hover {
+						color: $text-color;
+					}
+					
+					.item-text {
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+	/* --- /menu -- */
+	
+	
+	
+	/* --- search -- */
+	.nav-search-wrapper {
+		@include flex;
+		@include align(center);
+		width: 75%;
+		
+		search {
+			width: 100%;
+		}
+		
+		.nav-search {
+			    width: 50%;
+			    min-width: 280px;
+			    max-width: 100%;
+			    position: relative;
+			    background: $white;
+			    margin-left: 25px;
+			    .dd-box {
+				    line-height: 29px;
+				    font-size: 12px;
+				    border-left: 1px solid #eee;
+				}
+			}
+	}
+	/* --- /search -- */
+}
+/* --- /navbar -- */

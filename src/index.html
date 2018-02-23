@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-ng-app="lwsearch" data-ng-strict-di lang="en">
+<html data-ng-app="app" data-ng-strict-di lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,16 +11,18 @@
     <meta name="author" content="Derek Melvin" />
     <meta name="robots" content="noindex,nofollow"/>
     
-    <title>Lucid Search | Coding Challenge</title>
+    <title data-ng-bind="pageTitle">QVino</title>
     <link rel="icon" type="image/ico" href="static/favicon.ico" />
+    
 </head>
 
-<body>
-
-{{test}}
-
-<div data-translate="HELLO_WORLD"></div>
-
+<body data-ng-cloak>
+	<sidenav></sidenav>
+	<div class="container">
+		<navbar></navbar>
+		<ui-view></ui-view>
+		<footer></footer>
+	</div>
 </body>
 
 </html>

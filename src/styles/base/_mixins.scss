@@ -1,0 +1,69 @@
+/* 
+ * _mixins.scss
+ * 
+ * Contains common styles and functions that can be "mixed" into other
+ * style declarations.
+ */
+ 
+////////////////////////////////////////
+// Layout Mixins
+////////////////////////////////////////
+ @mixin flex {
+ 	display: flex;
+ 	display: -webkit-flex;
+ }
+ 
+ @mixin flex-order($order) {
+   	-webkit-box-flex: $order;
+   	flex: $order;
+ }
+ 
+ @mixin align($align) {
+ 	-webkit-box-align: center;
+	box-align: center;
+	align-items: center;
+ }
+ 
+ @mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+	-moz-box-sizing: $box-model; // Firefox <= 19
+	box-sizing: $box-model;
+}
+ 
+////////////////////////////////////////
+// Font Mixins
+////////////////////////////////////////
+
+// http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+ @mixin font-size($size: 12) {
+	font-size: $size;
+	font-size: calculate-rem($size);
+}
+
+////////////////////////////////////////
+// Other Mixins
+////////////////////////////////////////
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+}
+
+@mixin box-shadow($left, $top, $radius, $color) {
+	box-shadow: $left $top $radius $color;
+	-webkit-box-shadow: $left $top $radius $color;
+	-moz-box-shadow: $left $top $radius $color;
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+	transition: $property $duration $easing;
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+}
+
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+}

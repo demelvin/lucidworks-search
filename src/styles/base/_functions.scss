@@ -1,0 +1,19 @@
+/* 
+ * _functions.scss
+ * 
+ * Contains functions.
+ */
+ 
+////////////////////////////////////////
+// Font Functions
+////////////////////////////////////////
+
+/**
+ * Calculates the rem value for the given pixel size.
+ *
+ * http://www.stubbornella.org/content/2013/07/01/easy-peasy-rem-conversion-with-sass/
+ */
+@function calculate-rem($size) {
+	$remSize: $size / 16;
+  	@return #{$remSize}rem;
+}

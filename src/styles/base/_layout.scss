@@ -1,0 +1,13 @@
+/* 
+ * _layout.scss
+ * 
+ * Contains layout styles
+ */
+ 
+ footer, header, nav, section {
+    display: block;
+}
+
+*, body {
+	box-sizing: border-box;
+}

@@ -58,6 +58,7 @@ else {
  */
 config.module = {
 	rules: [
+		
 		//JavaScript
 		{
 			enforce: 'pre',
@@ -75,6 +76,7 @@ config.module = {
 				{ loader: 'babel-loader' }
 			]
 		},
+		
 		//Styles
 		{
 			test: /\.scss$/,
@@ -86,7 +88,8 @@ config.module = {
 					{ loader: 'sass-loader', options: { sourceMap: true } }
 				],
 			})
-		}, 
+		},
+		
 		//Images
 		{
 			test: /\.(png|jpeg|jpg|gif)$/,
@@ -94,10 +97,25 @@ config.module = {
 				{
 					loader: 'file-loader',
 					options: {
-						name: (isProd ? '[path][hash].[ext]' : '[path][name].[ext]'),
-						outputPath: 'images/',
-						publicPath: 'images/',
+						name: (isProd ? '[hash].[ext]' : '[name].[ext]'),
+						outputPath: 'images/'
 					}	
+				}
+				
+			]
+		},
+		
+		//Fonts
+		{
+			test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+			use: [
+				{
+					loader: 'file-loader',
+					options: {
+						name: '[name].[ext]',
+						outputPath: 'fonts/',
+						publicPath: '../'
+					}
 				}
 				
 			]
@@ -108,7 +126,8 @@ config.module = {
 			test: /\.html$/,
 			loader: 'raw-loader'
 		}
-		//TODO remove this if its not needed
+		
+		//TODO remove this if its not needed, leaving for template purposes
 //		{
 //			test: /\.html$/,
 //			exclude: /index\.html/,
