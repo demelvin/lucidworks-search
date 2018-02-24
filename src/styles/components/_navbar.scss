@@ -31,6 +31,7 @@
 	.logo-wrapper {
 		@include flex;
 		@include align(center);
+		margin-right: 15px;
 		
 		.logo {
 			@include flex;
@@ -113,23 +114,18 @@
 		@include align(center);
 		width: 75%;
 		
-		search {
-			width: 100%;
-		}
-		
-		.nav-search {
-			    width: 50%;
-			    min-width: 280px;
-			    max-width: 100%;
-			    position: relative;
-			    background: $white;
-			    margin-left: 25px;
-			    .dd-box {
-				    line-height: 29px;
-				    font-size: 12px;
-				    border-left: 1px solid #eee;
-				}
+		search-bar {
+			width: 50%;
+			min-width: 280px;
+		    max-width: 100%;
+		    position: relative;
+		    background: $white;
+		    .dd-box {
+			    line-height: 29px;
+			    font-size: 12px;
+			    border-left: 1px solid #eee;
 			}
+		}
 	}
 	/* --- /search -- */
 }

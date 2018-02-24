@@ -35,6 +35,27 @@ const run = ($rootScope, $transitions) => {
 		}
 	});
 	
+	//TODO remove this
+	
+//	const HISTORY_TEST = [
+//		{term: 'Wine Number One', query: 'wine-number-one', filter: 'reviews'},
+//		{term: 'Wine Number Two', query: 'wine-number-two', filter: 'title'},
+//		{term: 'Wine Number Three', query: 'wine-number-three', filter: 'reviews'},
+//		{term: 'Wine Number Four', query: 'wine-number-four', filter: 'taster'},
+//		{term: 'Wine Number Five', query: 'wine-number-five', filter: 'title'}
+//	];
+//	
+//	const BOOKMARK_TEST = [
+//		{term: 'Wine Number Six', query: 'wine-number-six', filter: 'reviews'},
+//		{term: 'Wine Number Seven', query: 'wine-number-seven', filter: 'title'},
+//		{term: 'Wine Number Eight', query: 'wine-number-eight', filter: 'reviews'},
+//		{term: 'Wine Number Nine', query: 'wine-number-nine', filter: 'taster'},
+//		{term: 'Wine Number Ten', query: 'wine-number-ten', filter: 'title'}
+//	];
+//	
+//	localStorageService.set('history', HISTORY_TEST);
+//	localStorageService.set('bookmarks', BOOKMARK_TEST);
+//	
 };
 
 export default run;

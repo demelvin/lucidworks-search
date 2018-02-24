@@ -8,8 +8,8 @@
  $border-radius: calculate-rem(4);
  $border-color: $grey-light;
  
- /* --- search -- */
- .search {
+ /* --- search-bar -- */
+ .search-bar {
  	@include border-radius($border-radius);
 	height: $box-height;
 	border: 1px solid $border-color;
@@ -125,4 +125,4 @@
     	background: transparent;
  	}
  }
- /* --- /search -- */
+ /* --- /search-bar -- */

@@ -12,10 +12,11 @@ class SideNavService {
 	/**
 	 * Creates a new SidNavService.
 	 */
-	constructor($rootScope, $log) {
+	constructor($rootScope, localStorageService, $log) {
 		'ngInject';
 		this.$log = $log;
 		this.$scope = $rootScope;
+		this.localStorageService = localStorageService;
 	}
 	
 	/**
@@ -23,7 +24,7 @@ class SideNavService {
 	 * search history list.
 	 */
 	showHistory() {
-		this.show('history');
+		this.show(settings.LOCAL_STORAGE_KEY.HISTORY);
 	}
 	
 	/**
@@ -31,17 +32,23 @@ class SideNavService {
 	 * bookmark list.
 	 */
 	showBookmarks() {
-		this.show('bookmarks');
+		this.show(settings.LOCAL_STORAGE_KEY.BOOKMARKS);
 	}
 
 	/**
-	 * Displays the given type ('history' | 'bookmarks');
+	 * Displays side navigation for the given type ('history' | 'bookmarks');
 	 * 
-	 * @param {String} displayType the type of aside to display.
+	 * @param {String} storageKey the local storage key used to
+	 * 	fetch the list of results to display.
 	 */
-	show(displayType) {
-		this.$log.info(displayType);
-		this.$scope.$broadcast(settings.EVENT.SHOW_SIDENAV, {displayType: displayType});
+	show(storageKey) {
+		this.$log.info(storageKey);
+		let results = (this.localStorageService.get(storageKey) || []);
+		let args = {
+			displayType: storageKey,
+			results: results
+		};
+		this.$scope.$broadcast(settings.EVENT.SHOW_SIDENAV, args);
 	}
 	
 	/**
@@ -51,6 +58,16 @@ class SideNavService {
 		this.$scope.$broadcast(settings.EVENT.HIDE_SIDENAV);
 	}
 	
+	/**
+	 * Removes all cached data for the given side navigation
+	 * type.
+	 * 
+	 * @param {String} type the display type or type of data
+	 * 	to remove
+	 */
+	removeAll(type) {
+		this.localStorageService.remove(type);
+	}
 }
 
 export { SideNavService };

@@ -21,12 +21,17 @@ const Settings = {
 		// LOCAL STORAGE
 		///////////////////////////////////////////
 		LOCAL_STORAGE_PREFIX: 'lws',
+		LOCAL_STORAGE_KEY: {
+			HISTORY: 'history',
+			BOOKMARKS: 'bookmarks'
+		},
 		
 		/////////////////////////////////////////////
 		// ROUTING
 		/////////////////////////////////////////////
 		STATE: {
-			HOME: 'home'
+			HOME: 'home',
+			SEARCH: 'search'
 		},
 		
 		/////////////////////////////////////////////

@@ -5,7 +5,7 @@ import searchTemplate from './search.html';
 /**
  * Search component definition. 
  * 
- * Responsible for displaying a search bar.
+ * Responsible for displaying search results.
  * 
  * @author Derek R. Melvin (https://github.com/demelvin)
  */

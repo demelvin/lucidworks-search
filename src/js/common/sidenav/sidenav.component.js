@@ -1,7 +1,15 @@
 'use strict';
 
+import fontawesome from '@fortawesome/fontawesome';
+import faTrash from '@fortawesome/fontawesome-free-solid/faTrash';
+import faBookmark from '@fortawesome/fontawesome-free-solid/faBookmark';
+import faHistory from '@fortawesome/fontawesome-free-solid/faHistory';
 import settings from '../../settings';
 import sideNavTemplate from './sidenav.html';
+
+fontawesome.library.add(faTrash);
+fontawesome.library.add(faHistory);
+fontawesome.library.add(faBookmark);
 
 
 
@@ -21,11 +29,13 @@ const SideNavComponent = {
 		/**
 		 * Creates a new SideNavController.
 		 */
-		constructor($scope, $log) {
+		constructor($scope, sideNavService, $log) {
 			'ngInject';
 			this.$scope = $scope;
+			this.sideNavService = sideNavService;
 			this.$log = $log;
 			this.displayType = undefined;
+			this.results = [];
 			this.listeners = [];
 		}
 		
@@ -57,16 +67,36 @@ const SideNavComponent = {
 			//show
 			let showListener = this.$scope.$on(settings.EVENT.SHOW_SIDENAV, (event, args) => {
 				self.displayType = args.displayType;
+				self.results = (args.results || []);
 			});
 			
 			//hide
 			let hideListener = this.$scope.$on(settings.EVENT.HIDE_SIDENAV, () => {
 				self.displayType = undefined;
+				self.results = [];
 			});
 			
 			//add listener
 			this.listeners.push(showListener);
 			this.listeners.push(hideListener);
+		}
+		
+		/**
+		 * Invoked when a result is selected within the side
+		 * nav. Kicks off the search for the given query.
+		 */
+		onClick(){
+			//TOOD transition to search or detail
+		}
+		
+		/**
+		 * Invoked when the clear/remove action
+		 * is selected. Removes all history or bookmark's
+		 * dependent upon what is displayed.
+		 */
+		removeAll(){
+			this.results = [];
+			this.sideNavService.removeAll(this.displayType);
 		}
 	}
 };

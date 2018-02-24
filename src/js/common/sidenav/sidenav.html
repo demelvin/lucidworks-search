@@ -1,3 +1,24 @@
 <aside class="sidenav" data-ng-class="{'show': !!sidenav.displayType}">
-	<!-- PLACEHOLDER -->
+	<div class="actions">
+		<a class="action" data-ng-click="sidenav.removeAll()">
+			<i class="fas fa-trash"></i>
+			<span class="text" data-translate="COMMON.REMOVE_ALL"></span>
+		</a>
+	</div>
+	<div class="result-list" data-ng-switch="sidenav.results.length > 0">
+		<div class="result" data-ng-repeat="result in sidenav.results" data-ng-switch-when="true">
+			<a data-ui-sref="search">
+				<i class="fas" 
+				 data-ng-class="{
+				 	'fa-bookmark': sidenav.displayType === 'bookmarks', 
+				 	'fa-history': sidenav.displayType === 'history'}">
+				 </i>
+				 <span class="text">{{result.term}}</span>
+			</a>
+		</div>
+		<div data-ng-switch-default>
+			<h4 data-translate="COMMON.NOTHING_TO_DISPLAY" data-translate-values="{displayType: sidenav.displayType}"></h4>
+		</div>
+	</div>
+	
 </aside>
