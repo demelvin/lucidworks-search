@@ -13,7 +13,8 @@
  	@include border-radius($border-radius);
 	height: $box-height;
 	border: 1px solid $border-color;
-	color: $grey-light;
+	color: $text-color;
+	background: $white;
 	
 	.input-wrapper {
 		display: block;
@@ -39,10 +40,10 @@
 	    margin-left: 15px;
 	    padding: 0 16px;
 	    font-size: 14px;
-	    border-left: 1px solid $grey;
 	    cursor: pointer;
 	    transition: .2s;
 	    text-transform: uppercase;
+	    text: $grey;
 	    
 	    .dd-btn {
 	    	border: none;
@@ -111,11 +112,11 @@
 	
 	.search-btn {
 	    @inlcude transition(opacity, .3s);
-	    @include opacity(.9);
 	    float: left;
 	    width: 50px;
 	    height: 50px;
 	    border: 0;
+	    color: $grey-light;
  	}
  	
  	[type = "button"] {

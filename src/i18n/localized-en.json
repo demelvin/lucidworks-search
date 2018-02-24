@@ -1,14 +1,18 @@
 {
 	"COMMON": {
 		"TITLE": "QVino",
-		"FAVORITES": "Favorites",
+		"BOOKMARKS": "Bookmarks",
 		"HISTORY": "History"
 	},
 	"SEARCH": {
-		"PLACEHOLDER": "Search by wines, wineries, and tasters",
+		"PLACEHOLDER": "Search reviews by wine name, winery, or taster",
 		"ALL" : "All",
 		"TITLE": "Title",
 		"WINERY": "Winery",
 		"TASTER": "Taster"
+	},
+	"HOME": {
+		"TITLE": "Discover Your Next Wine",
+		"SUB_TITLE": "Search wine reviews performed by notable tasters"
 	}
 }

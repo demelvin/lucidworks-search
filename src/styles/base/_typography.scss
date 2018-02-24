@@ -22,7 +22,7 @@ $font-weight-regular: 400;
 $font-weight-bold: 500;
 $font-weight-xbold: 600;
 
-*, body {
+body {
  	font-size: $font-base-size;
 	font-family: $font-stack;
 	color: $text-color;
@@ -49,12 +49,16 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	&:visited, &:hover, &:active {
-		color: none;
+		color: inherit;
 	}
 }
 
 a, input, select, textarea, button {
     outline: 0 !important;
+}
+
+strong {
+	font-weight: $font-weight-xbold;
 }
 
 [placeholder] {

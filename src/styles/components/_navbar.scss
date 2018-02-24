@@ -11,6 +11,10 @@
 .navbar {
 	@include flex;
 	position: fixed;
+	top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
     height: 75px;
 	width: 100%;
     justify-content: flex-start;
@@ -19,13 +23,8 @@
     background-color: $white;
     text-transform: uppercase;
     
-    border-bottom: 1px solid #CCC;
-    
     a {
     	transition: .35s;
-    	&:hover {
-    		@include opacity(.65);
-    	}
     }
     
     /* --- logo -- */
@@ -39,6 +38,10 @@
 		    text-decoration: none;
 		    margin-top: 5px;
 		    margin-bottom: 5px;	    
+		    
+		    &:hover {
+    			@include opacity(.45);
+    		}
 		    
 		    .img {
 				width: $icon-width;
@@ -87,9 +90,9 @@
 					@include flex;
 					flex-wrap: nowrap;
 					padding: 20px 12px;
-					color: $grey-light;
+					color: $grey;
 					
-					&:hover {
+					&:hover, &.active {
 						color: $text-color;
 					}
 					

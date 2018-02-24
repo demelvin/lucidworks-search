@@ -17,12 +17,15 @@
 </head>
 
 <body data-ng-cloak>
+	<navbar></navbar>
+	<main class="container">
+		<ui-view>
+			<!-- default -->
+			<home></home>
+		</ui-view>
+	</main>
+	<footer></footer>
 	<sidenav></sidenav>
-	<div class="container">
-		<navbar></navbar>
-		<ui-view></ui-view>
-		<footer></footer>
-	</div>
 </body>
 
 </html>

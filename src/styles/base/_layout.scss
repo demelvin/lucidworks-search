@@ -3,11 +3,16 @@
  * 
  * Contains layout styles
  */
- 
- footer, header, nav, section {
-    display: block;
+
+$body-padding-top: calculate-rem(75);
+$body-padding-bottom: calculate-rem(75);
+
+body {
+	box-sizing: border-box;
+    padding-top: $body-padding-top;
+    padding-bottom: $body-padding-bottom;	
 }
 
-*, body {
-	box-sizing: border-box;
+ui-view, home, search {
+	display: block;
 }

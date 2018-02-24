@@ -6,9 +6,9 @@ import { FooterModule } from './footer/footer.module';
 import { SideNavModule } from './sidenav/sidenav.module';
 
 const requires = [
+	SideNavModule,
 	NavbarModule,
-	FooterModule,
-	SideNavModule
+	FooterModule	
 ];
 
 /**

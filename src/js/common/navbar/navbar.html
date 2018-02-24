@@ -19,13 +19,13 @@
 		<div class="nav-menu">
 			<ul class="nav-menu-list">
 				<li class="nav-menu-list-item">
-					<a class="item">
+					<a class="item" data-ng-click="navbar.showBookmarks()" data-ng-class="{'active': navbar.selected === 'bookmarks'}">
 						<i class="fas fa-bookmark"></i>
-						<span class="item-text" data-translate="COMMON.FAVORITES"></span>
+						<span class="item-text" data-translate="COMMON.BOOKMARKS"></span>
 					</a>
 				</li>
 				<li class="nav-menu-list-item">
-					<a class="item">
+					<a class="item" data-ng-click="navbar.showHistory()" data-ng-class="{'active': navbar.selected === 'history'}">
 						<i class="fas fa-history"></i>
 						<span class="item-text" data-translate="COMMON.HISTORY"></span>
 					</a>

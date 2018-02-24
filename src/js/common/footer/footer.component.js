@@ -20,6 +20,7 @@ const FooterComponent = {
 		constructor($log) {
 			'ngInject';
 			this.$log = $log;
+			this.date = new Date();
 		}
 		
 		/**

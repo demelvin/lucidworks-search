@@ -14,3 +14,11 @@ $grey-dark: darken($grey, 10%);
 
 //pallet
 $text-color: #444444;
+
+.grey {
+	color: $grey;
+}
+
+.grey-light {
+	color: $grey-light;
+}

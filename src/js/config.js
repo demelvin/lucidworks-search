@@ -13,7 +13,7 @@ import localizedEnglish from '../i18n/localized-en.json';
  * @author Derek R. Melvin (https://github.com/demelvin)
  * 
  */
-const AppConfig = ($urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
+const AppConfig = ($qProvider, $urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
 	'ngInject';
 	
 	const DEFAULT_ROUTE = '/';	
@@ -34,6 +34,14 @@ const AppConfig = ($urlRouterProvider, $locationProvider, $translateProvider, lo
 		enabled: true,
 		requireBase: false
 	});
+	
+	/*
+	 * Unhandled rejection exception fix.
+	 * 
+	 * https://github.com/angular-ui/ui-router/issues/2889
+	 */
+	$qProvider.errorOnUnhandledRejections(false);
+	
 	
 	////////////////////////////////////////////
 	// Translation / Localization Configuration

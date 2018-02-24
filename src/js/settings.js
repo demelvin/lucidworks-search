@@ -27,6 +27,14 @@ const Settings = {
 		/////////////////////////////////////////////
 		STATE: {
 			HOME: 'home'
+		},
+		
+		/////////////////////////////////////////////
+		// EVENTS
+		/////////////////////////////////////////////
+		EVENT: {
+			SHOW_SIDENAV: 'event.show-sidenav',
+			HIDE_SIDENAV: 'event.hide-sidenav'
 		}
 		
 };

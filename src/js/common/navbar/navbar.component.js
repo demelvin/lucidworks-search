@@ -24,9 +24,11 @@ const NavbarComponent = {
 		/**
 		 * Creates a new NavbarController.
 		 */
-		constructor($log) {
+		constructor(sideNavService, $log) {
 			'ngInject';
 			this.$log = $log;
+			this.sideNavService = sideNavService;
+			this.selected = undefined;
 		}
 		
 		/**
@@ -34,6 +36,50 @@ const NavbarComponent = {
 		 */
 		$onInit() {
 			this.$log.debug('Navbar.$onInit()');
+		}
+
+		/**
+		 * Displays the aside menu with the
+		 * search history list.
+		 */
+		showHistory() {
+			let target = 'history';
+			if(!this.isDisplayed(target)){
+				this.sideNavService.showHistory();
+				this.selected = target;
+			}
+		}
+		
+		/**
+		 * Displays the aside menu with the
+		 * bookmark list.
+		 */
+		showBookmarks() {
+			let target = 'bookmarks';
+			if(!this.isDisplayed(target)){
+				this.sideNavService.showBookmarks();
+				this.selected = target;
+			}
+		}
+		
+		/**
+		 * Checks to see if the given target is already
+		 * displayed. If the target is displayed it will be
+		 * hidden and true will be returned. Otherwise
+		 * false is returned.
+		 * 
+		 * @param {String} target the target selection to check
+		 * @returns {Boolean} isDisplayed true if the target is already displayed
+		 */
+		isDisplayed(target){
+			let displayed = (this.selected && this.selected === target);
+			if(displayed){
+				//hide if its already displayed
+				this.sideNavService.hide();
+				//reset
+				this.selected = undefined;
+			}
+			return displayed;
 		}
 	}
 };
