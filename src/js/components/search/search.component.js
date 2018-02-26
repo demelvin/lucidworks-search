@@ -15,16 +15,28 @@ const SearchComponent = {
 	controllerAs: 'search',
 	controller: class SearchController {
 		
-		constructor($log){
+		constructor($stateParams, $log){
 			'ngInject';
 			this.$log = $log;
+			this.$stateParams = $stateParams;
+			this.query = $stateParams.query;
+			this.category = $stateParams.category;
+			this.results = [];
 		}
 		
 		/**
 		 * Invoked when the component is initialized.
 		 */
 		$onInit(){
-			this.$log.debug('Search.$onInit()');
+			this.$log.debug('Search.$onInit(%o, %o)', this.query, this.category);
+			if(this.query){
+				//replace dashes with spaces again
+				this.query = this.query.replace(/-/g, ' ');
+			}
+		}
+		
+		performSearch(){
+			//TODO
 		}
 	}
 };

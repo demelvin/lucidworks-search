@@ -20,7 +20,9 @@ const AppConfig = ($qProvider, $urlRouterProvider, $locationProvider, $translate
 	const DEFAULT_LANG = 'en';
 	const LOG_DEBUG_ENABLED = true;
 	const TRANSLATE_SANITIZE_STRATEGY = 'escapeParameters';
-	
+	//FIXME Set this to true once we figure out why it doesn't work with webpack
+	//https://github.com/webpack/docs/wiki/webpack-dev-server
+	const HTML5_MODE = false;
 	
 	////////////////////////////////////////////
 	// Routing Configuration
@@ -31,7 +33,7 @@ const AppConfig = ($qProvider, $urlRouterProvider, $locationProvider, $translate
 
 	// use the HTML5 browser history
 	$locationProvider.html5Mode({
-		enabled: true,
+		enabled: HTML5_MODE,
 		requireBase: false
 	});
 	

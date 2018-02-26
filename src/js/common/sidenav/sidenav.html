@@ -7,13 +7,13 @@
 	</div>
 	<div class="result-list" data-ng-switch="sidenav.results.length > 0">
 		<div class="result" data-ng-repeat="result in sidenav.results" data-ng-switch-when="true">
-			<a data-ui-sref="search">
+			<a data-ui-sref="search({query: result.query, category: result.category})">
 				<i class="fas" 
 				 data-ng-class="{
 				 	'fa-bookmark': sidenav.displayType === 'bookmarks', 
 				 	'fa-history': sidenav.displayType === 'history'}">
 				 </i>
-				 <span class="text">{{result.term}}</span>
+				 <span class="text">{{result.text}}</span>
 			</a>
 		</div>
 		<div data-ng-switch-default>

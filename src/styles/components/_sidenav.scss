@@ -21,6 +21,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: $body-padding-top;
+    overflow: hidden;
     
     //show elements
     &.show {
@@ -44,7 +45,8 @@
     	text-align: left;
     	font-weight: $font-weight-xbold;
     	padding: 10px 10px;
-		background-color: $white;
+		background-color: $black;
+		color: $white;
     	
     	a {
     		display:block;

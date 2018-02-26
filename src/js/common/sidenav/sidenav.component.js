@@ -82,14 +82,6 @@ const SideNavComponent = {
 		}
 		
 		/**
-		 * Invoked when a result is selected within the side
-		 * nav. Kicks off the search for the given query.
-		 */
-		onClick(){
-			//TOOD transition to search or detail
-		}
-		
-		/**
 		 * Invoked when the clear/remove action
 		 * is selected. Removes all history or bookmark's
 		 * dependent upon what is displayed.

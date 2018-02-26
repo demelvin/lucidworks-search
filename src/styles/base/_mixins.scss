@@ -67,11 +67,3 @@
 	$opacity-ie: $opacity * 100;
 	filter: alpha(opacity=$opacity-ie); //IE8
 }
-
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}

@@ -40,6 +40,16 @@ const Settings = {
 		EVENT: {
 			SHOW_SIDENAV: 'event.show-sidenav',
 			HIDE_SIDENAV: 'event.hide-sidenav'
+		},
+		
+		/////////////////////////////////////////////
+		// SEARCH
+		/////////////////////////////////////////////
+		CATEGORIES: {
+			ANY: 'ANY',
+			TITLE: 'TITLE',
+			WINERY: 'WINERY',
+			TASTER: 'TASTER'
 		}
 		
 };

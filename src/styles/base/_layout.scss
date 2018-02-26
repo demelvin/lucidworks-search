@@ -16,3 +16,21 @@ body {
 ui-view, home, search, search-bar {
 	display: block;
 }
+
+footer {
+	position: absolute;
+	bottom: 0;
+	padding: 25px;
+}
+
+.clearfix {
+	&:before {
+	    content: " ";
+	    display: table;
+  	}
+	&:after {
+		content: " ";
+	    display: table;
+	    clear: both;
+	}
+}

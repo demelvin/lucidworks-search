@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "dev": "webpack-dev-server --content-base app",
+    "dev": "webpack-dev-server  --history-api-fallback --content-base src",
     "build": "webpack --bail --progress --profile"
   },
   "repository": {

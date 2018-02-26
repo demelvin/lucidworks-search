@@ -24,11 +24,13 @@ const NavbarComponent = {
 		/**
 		 * Creates a new NavbarController.
 		 */
-		constructor(sideNavService, $log) {
+		constructor(sideNavService, $transitions, $log) {
 			'ngInject';
-			this.$log = $log;
 			this.sideNavService = sideNavService;
+			this.$transitions = $transitions;
+			this.$log = $log;
 			this.selected = undefined;
+			this.setupListeners();
 		}
 		
 		/**
@@ -36,6 +38,34 @@ const NavbarComponent = {
 		 */
 		$onInit() {
 			this.$log.debug('Navbar.$onInit()');
+		}
+		
+		
+		/**
+		 * Destroy listeners just in case.
+		 */
+		$onDestroy() {
+			//iterate over event listeners and destroy them
+			for(let listener of this.listeners){
+				listener();
+			}
+		}
+		
+		/**
+		 * Setup the event listeners used to show/hide the 
+		 * SideNavComponent.
+		 */
+		setupListeners() {
+			let self = this;
+			self.listeners = [];
+			
+			let routeChangeListener = this.$transitions.onStart({}, function() {
+				//hide if its already displayed
+				self.hideSideNav();
+			});
+			
+			//add listener
+			this.listeners.push(routeChangeListener);
 		}
 
 		/**
@@ -63,6 +93,16 @@ const NavbarComponent = {
 		}
 		
 		/**
+		 * Hides the side navigation.
+		 */
+		hideSideNav(){
+			//hide side nav
+			this.sideNavService.hide();
+			//reset
+			this.selected = undefined;
+		}
+		
+		/**
 		 * Checks to see if the given target is already
 		 * displayed. If the target is displayed it will be
 		 * hidden and true will be returned. Otherwise
@@ -75,9 +115,7 @@ const NavbarComponent = {
 			let displayed = (this.selected && this.selected === target);
 			if(displayed){
 				//hide if its already displayed
-				this.sideNavService.hide();
-				//reset
-				this.selected = undefined;
+				this.hideSideNav();
 			}
 			return displayed;
 		}

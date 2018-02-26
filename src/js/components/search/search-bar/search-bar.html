@@ -1,21 +1,19 @@
 <div class="search-bar">
-	<form class="search">
+	<form class="search" data-ng-submit="searchBar.search()">
 		<div>
-			<div class="dd-box">
-				<button class="dd-btn" type="button">
-					{{'SEARCH.ALL' | translate}}
-				</button>
-				<div class="dd-actions">
-				    <a class="action" data-translate="SEARCH.TITLE"></a>
-				    <a class="action" data-translate="SEARCH.WINERY"></a>
-				    <a class="action" data-translate="SEARCH.TASTER"></a>
+			<div class="dd-box" data-ng-click="searchBar.showCategories = !searchBar.showCategories">
+				<button class="dd-btn" type="button" data-translate="{{'SEARCH.' + searchBar.category}}"></button>
+				<div class="dd-actions" data-ng-show="searchBar.showCategories">
+				    <a class="action" data-ng-repeat="category in searchBar.categories" data-ng-click="searchBar.updateCategory(category)">
+				    	{{'SEARCH.' + category | translate}}
+				    </a>
 				 </div>
 			</div>
-			<button class="search-btn" type="button">
+			<button class="search-btn" type="submit">
 				<i class="fas fa-search"></i>
 			</button>
 			<span class="input-wrapper">
-				<input type="text" name="query" placeholder="{{'SEARCH.PLACEHOLDER' | translate}}" data-autofocus="" autocomplete="off">
+				<input type="text" name="query" data-ng-model="searchBar.query" placeholder="{{'SEARCH.PLACEHOLDER' | translate}}" data-autofocus="" autocomplete="off">
 			</span>
 		</div>
 	</form>

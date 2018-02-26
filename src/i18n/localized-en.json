@@ -8,11 +8,12 @@
 	},
 	"SEARCH": {
 		"PLACEHOLDER": "Search reviews by wine name, winery, or taster",
-		"ALL" : "All",
+		"ANY" : "Any",
 		"TITLE": "Title",
 		"WINERY": "Winery",
 		"TASTER": "Taster",
-		"NO_RESULTS": "No results returned"
+		"NO_RESULTS": "No results returned",
+		"RESULTS": "Results"
 	},
 	"HOME": {
 		"TITLE": "Discover Your Next Wine",

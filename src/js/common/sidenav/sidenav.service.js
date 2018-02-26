@@ -34,6 +34,39 @@ class SideNavService {
 	showBookmarks() {
 		this.show(settings.LOCAL_STORAGE_KEY.BOOKMARKS);
 	}
+	
+	/**
+	 * Adds the given object to history.
+	 * 
+	 * @param {String} text the display text or the 
+	 * 	unmodified text entered by the user
+	 * @param {String} query the query param used within the url
+	 * @param {String} category the search category
+	 * 
+	 */
+	addHistory(text, query, category){
+		let storageKey = settings.LOCAL_STORAGE_KEY.HISTORY;
+		let history = {
+			text: text,
+			query: query,
+			category: category 
+		};
+		let historyList = (this.localStorageService.get(storageKey) || []);
+		historyList.unshift(history);
+		this.localStorageService.set(storageKey, historyList);
+	}
+	
+	/**
+	 * Adds the given bookmark.
+	 * 
+	 * @param {Object} the bookmark to add
+	 */
+	addBookmark(bookmark){
+		let storageKey = settings.LOCAL_STORAGE_KEY.BOOKMARKS;
+		let bookmarks = (this.localStorageService.get(storageKey) || []);
+		bookmarks.unshift(bookmark);
+		this.localStorageService.set(storageKey, bookmarks);
+	}
 
 	/**
 	 * Displays side navigation for the given type ('history' | 'bookmarks');
