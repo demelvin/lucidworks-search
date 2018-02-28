@@ -3,10 +3,12 @@
 import angular from 'angular';
 import { HomeModule } from './home/home.module';
 import { SearchModule } from './search/search.module';
+import { ReviewModule } from './review/review.module';
 
 const requires = [
 	HomeModule,
-	SearchModule
+	SearchModule,
+	ReviewModule
 ];
 
 /**

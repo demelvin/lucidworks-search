@@ -2,10 +2,10 @@
 	<form class="search" data-ng-submit="searchBar.search()">
 		<div>
 			<div class="dd-box" data-ng-click="searchBar.showCategories = !searchBar.showCategories">
-				<button class="dd-btn" type="button" data-translate="{{'SEARCH.' + searchBar.category}}"></button>
+				<button class="dd-btn" type="button" data-translate="{{'SEARCH.' + searchBar.category.name}}"></button>
 				<div class="dd-actions" data-ng-show="searchBar.showCategories">
 				    <a class="action" data-ng-repeat="category in searchBar.categories" data-ng-click="searchBar.updateCategory(category)">
-				    	{{'SEARCH.' + category | translate}}
+				    	{{'SEARCH.' + category.name | translate}}
 				    </a>
 				 </div>
 			</div>

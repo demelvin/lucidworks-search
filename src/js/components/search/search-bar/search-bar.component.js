@@ -16,15 +16,17 @@ const SearchBarComponent = {
 	controllerAs: 'searchBar',
 	controller: class SearchBarController {
 		
-		constructor($state, sideNavService, $log){
+		constructor($state, $transitions, sideNavService, $log){
 			'ngInject';
 			this.$state = $state;
+			this.$transitions = $transitions;
 			this.sideNavService = sideNavService;
 			this.$log = $log;
 			this.query = undefined;
-			this.categories = Object.keys(settings.CATEGORIES);
+			this.categories = settings.CATEGORIES;
 			this.category = settings.CATEGORIES.ANY;
 			this.showCategories = false;
+			this.listeners = [];
 		}
 		
 		/**
@@ -32,6 +34,44 @@ const SearchBarComponent = {
 		 */
 		$onInit(){
 			this.$log.debug('SearchBar.$onInit()');
+			this.setupListeners();
+		}
+		
+		/**
+		 * Destroy listeners.
+		 */
+		$onDestroy() {
+			//iterate over event listeners and destroy them
+			for(let listener of this.listeners){
+				listener();
+			}
+		}
+		
+		/**
+		 * Setup the event listeners used to show/hide the 
+		 * SideNavComponent.
+		 */
+		setupListeners() {
+			
+			/*
+			 * Listen for successful transitions update query + category
+			 * if its defined.
+			 */
+			let routeListener = this.$transitions.onSuccess({to: settings.STATE.SEARCH}, (transition) => {
+				
+				if(transition){
+					let stateParams = transition.params();
+					//query
+					let query = stateParams.query;
+					this.query = (!this.query ? query : this.query);
+					//category
+					let category = stateParams.category;
+					this.category = (category ? settings.CATEGORIES[category.toUpperCase()] : settings.CATEGORIES.ANY);
+				}
+			});
+			
+			//add listener
+			this.listeners.push(routeListener);
 		}
 		
 		/**
@@ -44,7 +84,7 @@ const SearchBarComponent = {
 			if(this.query){
 				//replace white spaces with dashes
 				let query = this.query.replace(/\s+/g, '-').toLowerCase();
-				let category = this.category.toLowerCase();
+				let category = this.category.name.toLowerCase();
 				//record in history
 				this.sideNavService.addHistory(this.query, query, category);
 				//transition kick off the search
@@ -60,8 +100,12 @@ const SearchBarComponent = {
 		 * @param {String} category the selected category
 		 */
 		updateCategory(category){
-			if(category){
-				this.category = category;	
+			if(category && category !== this.category){
+				this.category = category;
+				if(this.query){
+					//kick off a new search
+					this.search();
+				}
 			}
 		}
 	}

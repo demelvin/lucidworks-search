@@ -4,7 +4,8 @@
 		"BOOKMARKS": "Bookmarks",
 		"HISTORY": "History",
 		"NOTHING_TO_DISPLAY": "You have no {{displayType}}",
-		"REMOVE_ALL": "clear"
+		"REMOVE_ALL": "clear",
+		"POINTS": "Points"
 	},
 	"SEARCH": {
 		"PLACEHOLDER": "Search reviews by wine name, winery, or taster",
@@ -13,7 +14,9 @@
 		"WINERY": "Winery",
 		"TASTER": "Taster",
 		"NO_RESULTS": "No results returned",
-		"RESULTS": "Results"
+		"RESULTS": "Results",
+		"REVIEWED_BY": "Reviewed By {{taster}}",
+		"REVIEWED_BY_UNKNOWN": "Reviewed By Anonymous"
 	},
 	"HOME": {
 		"TITLE": "Discover Your Next Wine",

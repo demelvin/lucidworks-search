@@ -1,0 +1,33 @@
+/* 
+ * _review.scss
+ * 
+ * Contains styles related to the review detail.
+ */
+
+.review-wrapper {
+    display: block;
+ 	max-width: 1320px;
+    margin: 0 auto;
+    
+	
+	.review-header {
+		padding-top: 60px;
+    	padding-bottom: 24px;
+    	font-weight: $font-weight-xbold;
+	}
+	    
+	.detail {
+		@include flex;
+		
+		.info {
+			flex: 35%;
+			background: $grey-xlight;
+		}
+		
+		.review {
+			flex: 65%;
+		}
+	}
+	
+	
+}

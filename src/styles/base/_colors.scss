@@ -10,7 +10,11 @@ $black: #000000;
 $dark: #2a3131;
 $grey: #95A5A6;
 $grey-light: lighten($grey, 15%);
+$grey-xlight: lighten($grey, 35%);
 $grey-dark: darken($grey, 10%);
+$red: #B1101F;
+$red-light: lighten($red, 15%);
+$red-xlight: lighten($red, 35%);
 
 //pallet
 $text-color: #444444;
@@ -21,4 +25,12 @@ $text-color: #444444;
 
 .grey-light {
 	color: $grey-light;
+}
+
+.red {
+	color: $red;
+}
+
+.red-xlight {
+	color: $red-xlight;
 }

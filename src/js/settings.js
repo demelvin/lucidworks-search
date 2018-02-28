@@ -31,7 +31,8 @@ const Settings = {
 		/////////////////////////////////////////////
 		STATE: {
 			HOME: 'home',
-			SEARCH: 'search'
+			SEARCH: 'search',
+			REVIEW: 'review'
 		},
 		
 		/////////////////////////////////////////////
@@ -46,10 +47,36 @@ const Settings = {
 		// SEARCH
 		/////////////////////////////////////////////
 		CATEGORIES: {
-			ANY: 'ANY',
-			TITLE: 'TITLE',
-			WINERY: 'WINERY',
-			TASTER: 'TASTER'
+			ANY: {
+				name: 'ANY',
+				field: '*'
+			},
+			TITLE: {
+				name: 'TITLE',
+				field: 'title_t'
+			},
+			WINERY: {
+				name: 'WINERY',
+				field: 'winery_t'
+			},
+			TASTER: {
+				name: 'TASTER',
+				field: 'taster_name_t'
+			}
+		},
+		
+		/////////////////////////////////////////////
+		// SEARCH API
+		/////////////////////////////////////////////
+		API: {
+			BASE_URL: 'http://localhost:8764/api',
+			USERNAME: 'lwsearch-app',
+			PASSWORD: 'lucidworks2018',
+			COOKIE: 'id',
+			ENDPOINT: {
+				SEARCH: '/apps/qvino/query/qvino',
+				AUTH: '/session?realmName=native'
+			}
 		}
 		
 };

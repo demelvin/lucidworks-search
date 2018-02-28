@@ -4,13 +4,19 @@
  * Contains Search component styles.
  */
  
- $info-font-size: calculate-rem(18);
+$info-font-size: calculate-rem(18);
+$desc-font-size: font-size(18);
+$desc-line-height: 1.4;
+$desc-lines-to-show: 2;
+$rating-height: calculate-rem(20);
  
+ /* --- search-wrapper -- */
  .search-wrapper {
  	display: block;
  	max-width: 1320px;
     margin: 0 auto;
  	
+ 	/* --- search-header -- */
  	.search-header {
  		padding-top: 60px;
  		padding-bottom: 24px;
@@ -25,5 +31,91 @@
  			}
  		}
  	}
+    /* --- /search-header -- */
+ 	
+ 	/* --- search-results -- */
+ 	.search-results {
+ 		
+ 		/* --- search-result -- */
+ 		.search-result {
+ 			@include flex;
+ 			
+ 			.item-detail {
+ 				flex: 20%;
+	 			.thumb {
+	 				position: relative;
+		    		
+	 			}
+ 			}
+ 			
+ 			/* --- item-content -- */
+ 			.item-content {
+ 				flex: 55%;
+ 				
+ 				.taster {
+ 					margin-top: 10px;
+ 					color: $grey;
+ 				}
+ 				
+ 				.description {
+ 					margin-top: 15px;
+ 					max-width: 400px;
+ 				  	display: block; /* Fallback for non-webkit */
+				  	display: -webkit-box;
+				  	font-size: $desc-font-size;
+				  	line-height: $desc-line-height;
+					-webkit-line-clamp: $desc-lines-to-show;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+ 				}
+ 				
+ 				.points {
+ 					margin-top: 25px;
+ 					display:block;
+ 					white-space: nowrap;
+ 					
+ 					h5 {
+ 						margin: 5px 0;
+ 					}
+ 					
+ 					.icon {
+ 						display: inline-block;
+ 						color: $red;
+ 					}
+ 					
+ 					.bar {
+ 						@include border-radius(15px)
+ 						display: inline-block;
+ 						width: 0%;
+ 						height: $rating-height;
+ 						background-color: $red-xlight;
+ 						@include transition(width, 10s, ease-in-out);
+ 					}
+ 					
+ 					.label {
+ 						display: inline-block;
+ 						height: $rating-height;
+ 						vertical-align: bottom;
+ 						font-weight: $font-weight-xbold;
+ 					}
+ 				}
+ 			}
+ 			/* --- /item-content -- */
+ 			
+ 			.item-info {
+ 				flex: 25%;
+ 				
+ 				.info-row {
+ 					padding-top: 10px;
+ 					font-weight: $font-weight-xbold;
+ 				}
+ 			}
+ 			
+ 		}
+ 		/* --- /search-result -- */
+ 	}
+ 	/* --- /search-results -- */
  }
+ /* --- /search-wrapper -- */
  

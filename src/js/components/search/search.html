@@ -1,8 +1,44 @@
 <div class="search-wrapper">
-  <div class="search-header">
-  	<div class="info">
-  		<h1 class="title capitalize">{{search.query}} {{'SEARCH.RESULTS' | translate}}</h1>
-  		<p class="lowerase">({{ search.results.length }}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
+
+	<!-- search header -->
+	<div class="search-header">
+		<div class="info">
+  			<h1 class="title capitalize">{{search.query}} {{'SEARCH.RESULTS' | translate}}</h1>
+  			<p class="lowerase grey">({{ search.result.total }}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
+  		</div>
   	</div>
-  </div>
+  	<!-- /search header -->
+  	
+  	<!-- search results -->
+	<div class="search-results">
+		<div class="search-result" data-ng-repeat="item in search.result.items">
+			<div class="item-detail">
+				<div class="thumb">
+					<img src="/images/wine-glasses.jpg">
+				</div>
+				<div class="detail"></div>
+			</div>
+			<div class="item-content">
+				<h3 class="title">{{item.title_s}}</h3>
+				<h4 class="taster">
+					<span data-ng-if="!!item.taster_name_s" data-translate="SEARCH.REVIEWED_BY" data-translate-values="{taster: item.taster_name_s}"></span>
+					<span data-ng-if="!item.taster_name_s" data-translate="SEARCH.REVIEWED_BY_UNKNOWN"></span>
+				</h4>
+				<p class="description">{{item.description_t[0]}}</p>
+				<div class="points">
+					<h5><span class="icon"><i class="fas fa-certificate"></i></span> {{'COMMON.POINTS' | translate}}</h5>
+					<div class="bar" data-ng-style="{ 'width' : item.points_s + '%'}"></div>
+					<div class="label">{{item.points_s}}</div>
+				</div>
+			</div>
+			<div class="item-info">
+				<div class="info-row red">{{item.winery_s}}</div>
+				<div class="info-row red">{{item.province_s}}, {{item.country_s}}</div>
+				<div class="info-row grey">{{item.variety_s}}</div>
+				<div class="info-row">{{item.price_i | currency}}</div>
+			</div>
+		</div>
+	</div> 
+   	<!-- /search results -->
+   	
 </div>

@@ -20,7 +20,7 @@ const SearchConfig = ($stateProvider) => {
 		component: 'search',
 		params: {
             query: 'test',
-            category: settings.CATEGORIES.ANY.toLowerCase()
+            category: settings.CATEGORIES.ANY.name.toLowerCase()
         },
 		title: 'Search'
 	});

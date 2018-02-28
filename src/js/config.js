@@ -13,7 +13,7 @@ import localizedEnglish from '../i18n/localized-en.json';
  * @author Derek R. Melvin (https://github.com/demelvin)
  * 
  */
-const AppConfig = ($qProvider, $urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
+const AppConfig = ($qProvider, $httpProvider, $urlRouterProvider, $locationProvider, $translateProvider, localStorageServiceProvider, $logProvider, $compileProvider) => {
 	'ngInject';
 	
 	const DEFAULT_ROUTE = '/';	
@@ -23,6 +23,14 @@ const AppConfig = ($qProvider, $urlRouterProvider, $locationProvider, $translate
 	//FIXME Set this to true once we figure out why it doesn't work with webpack
 	//https://github.com/webpack/docs/wiki/webpack-dev-server
 	const HTML5_MODE = false;
+	const CORS_ENABLED = true;
+	
+	////////////////////////////////////////////
+	// Enable CORS Requests
+	//
+	// NOTE: This is necessary to hit the search API
+	////////////////////////////////////////////
+    $httpProvider.defaults.withCredentials = CORS_ENABLED;
 	
 	////////////////////////////////////////////
 	// Routing Configuration
