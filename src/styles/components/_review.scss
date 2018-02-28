@@ -3,6 +3,11 @@
  * 
  * Contains styles related to the review detail.
  */
+ 
+$media-width: calculate-rem(300);
+$media-height: calculate-rem(300);
+$desc-font-size: font-size(18);
+$desc-line-height: 1.4;
 
 .review-wrapper {
     display: block;
@@ -14,18 +19,80 @@
 		padding-top: 60px;
     	padding-bottom: 24px;
     	font-weight: $font-weight-xbold;
+    	
+    	.taster {
+    		margin-top: 10px;
+    		color: $grey;
+    		
+    		a {
+    			color: $red-xlight;
+    		}
+    	}
+    	
+    	.item-info {
+			@include flex;
+			@include align(strecth);
+			flex-direction: row;
+    		align-items: stretch;
+			margin-top: 10px;
+			width: 100%;
+			
+			.info {
+				flex: 1;
+				color: $red;
+				
+				.bookmark-link {
+					@include border-radius(4px);
+					padding: 5px 15px;
+					transition: .35s;
+					color: $grey;
+					
+					&:hover {
+						background: $grey;
+						color: $white;
+					}
+					
+					.bookmark-icon {
+						margin-right: 10px;
+					}
+				}
+				
+			}
+		}
 	}
 	    
 	.detail {
 		@include flex;
 		
-		.info {
-			flex: 35%;
-			background: $grey-xlight;
+		.review-media {
+			@include flex
+			justify-content: center;
+			flex-wrap: wrap;
+			background-color: $grey-xlight;
+				
+ 			.media {
+ 				min-width: 0;
+				margin: 5px;
+					
+				.img {
+					width: $media-width;
+					max-width: 100%;
+					max-height: $media-width;
+				}
+ 			}
 		}
 		
 		.review {
-			flex: 65%;
+			margin: 0 15px;
+			.description {
+				margin-top: 15px;
+				max-width: 600px;
+				display: block; /* Fallback for non-webkit */
+			  	display: -webkit-box;
+			  	font-size: $desc-font-size;
+			  	line-height: $desc-line-height;
+				-webkit-box-orient: vertical;
+			}
 		}
 	}
 	

@@ -4,6 +4,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 import faBookmark from '@fortawesome/fontawesome-free-solid/faBookmark';
 import faHistory from '@fortawesome/fontawesome-free-solid/faHistory';
+import settings from '../../settings';
 import navbarTemplate from './navbar.html';
 
 fontawesome.library.add(faSearch);
@@ -24,8 +25,9 @@ const NavbarComponent = {
 		/**
 		 * Creates a new NavbarController.
 		 */
-		constructor(sideNavService, $transitions, $log) {
+		constructor($scope, sideNavService, $transitions, $log) {
 			'ngInject';
+			this.$scope = $scope;
 			this.sideNavService = sideNavService;
 			this.$transitions = $transitions;
 			this.$log = $log;
@@ -59,12 +61,18 @@ const NavbarComponent = {
 			let self = this;
 			self.listeners = [];
 			
+			//hide
+			let hideListener = this.$scope.$on(settings.EVENT.HIDE_SIDENAV, () => {
+				this.selected = undefined;
+			});
+			
 			let routeChangeListener = this.$transitions.onStart({}, function() {
 				//hide if its already displayed
 				self.hideSideNav();
 			});
 			
-			//add listener
+			//add listeners
+			this.listeners.push(hideListener);
 			this.listeners.push(routeChangeListener);
 		}
 

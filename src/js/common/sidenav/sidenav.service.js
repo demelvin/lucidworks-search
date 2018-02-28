@@ -24,7 +24,13 @@ class SideNavService {
 	 * search history list.
 	 */
 	showHistory() {
-		this.show(settings.LOCAL_STORAGE_KEY.HISTORY);
+		let storageKey = settings.LOCAL_STORAGE_KEY.HISTORY;
+		let results = (this.localStorageService.get(storageKey) || []);
+		let args = {
+			displayType: storageKey,
+			results: results
+		};
+		this.$scope.$broadcast(settings.EVENT.SHOW_SIDENAV, args);
 	}
 	
 	/**
@@ -32,7 +38,21 @@ class SideNavService {
 	 * bookmark list.
 	 */
 	showBookmarks() {
-		this.show(settings.LOCAL_STORAGE_KEY.BOOKMARKS);
+		let storageKey = settings.LOCAL_STORAGE_KEY.BOOKMARKS;
+		let bookmarks = (this.localStorageService.get(storageKey) || {});
+		let results = [];
+		
+		//add each bookmark object to the array
+		for(let key of Object.keys(bookmarks)){
+			results.push(bookmarks[key]);
+		}
+		
+		//create the even args
+		let args = {
+			displayType: storageKey,
+			results: results
+		};
+		this.$scope.$broadcast(settings.EVENT.SHOW_SIDENAV, args);
 	}
 	
 	/**
@@ -54,34 +74,6 @@ class SideNavService {
 		let historyList = (this.localStorageService.get(storageKey) || []);
 		historyList.unshift(history);
 		this.localStorageService.set(storageKey, historyList);
-	}
-	
-	/**
-	 * Adds the given bookmark.
-	 * 
-	 * @param {Object} the bookmark to add
-	 */
-	addBookmark(bookmark){
-		let storageKey = settings.LOCAL_STORAGE_KEY.BOOKMARKS;
-		let bookmarks = (this.localStorageService.get(storageKey) || []);
-		bookmarks.unshift(bookmark);
-		this.localStorageService.set(storageKey, bookmarks);
-	}
-
-	/**
-	 * Displays side navigation for the given type ('history' | 'bookmarks');
-	 * 
-	 * @param {String} storageKey the local storage key used to
-	 * 	fetch the list of results to display.
-	 */
-	show(storageKey) {
-		this.$log.info(storageKey);
-		let results = (this.localStorageService.get(storageKey) || []);
-		let args = {
-			displayType: storageKey,
-			results: results
-		};
-		this.$scope.$broadcast(settings.EVENT.SHOW_SIDENAV, args);
 	}
 	
 	/**

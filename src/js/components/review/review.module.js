@@ -8,6 +8,7 @@
 
 import angular from 'angular';
 import { ReviewComponent } from './review.component';
+import { ReviewService } from './review.service';
 import ReviewConfig from './review.config';
 
 const requires = [];
@@ -15,5 +16,6 @@ const requires = [];
 export const ReviewModule = angular
 	.module('review', requires)
 	.component('review', ReviewComponent)
+	.service('reviewService', ReviewService)
 	.config(ReviewConfig)
 	.name;

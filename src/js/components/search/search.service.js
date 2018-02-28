@@ -36,7 +36,6 @@ class SearchService {
 		const request = {
 				method : 'GET',
 				url : settings.API.BASE_URL + settings.API.ENDPOINT.SEARCH,
-				withCredentials: true,
 				params: {
 					start: (page || 0),
 					q: this.buildQuery(query, categoryName),

@@ -1,5 +1,6 @@
 'use strict';
 
+import settings from '../../settings';
 import fontawesome from '@fortawesome/fontawesome';
 import faCertificate from '@fortawesome/fontawesome-free-solid/faCertificate';
 import searchTemplate from './search.html';
@@ -23,10 +24,11 @@ const SearchComponent = {
 		/**
 		 * Creates a new SearchComponent.
 		 */
-		constructor(searchService, $stateParams, $log){
+		constructor(searchService, $state, $stateParams, $log){
 			'ngInject';
 			this.searchService = searchService;
 			this.$log = $log;
+			this.$state = $state;
 			this.$stateParams = $stateParams;
 			this.query = $stateParams.query;
 			this.category = $stateParams.category;
@@ -62,6 +64,15 @@ const SearchComponent = {
 			['finally'](() => {
 				this.searching = false;	
 			});
+		}
+		
+		/**
+		 * Invoked when a search item is selected.
+		 * 
+		 * @param {Object} item the item that was selected
+		 */
+		itemSelected(item){
+			this.$state.go(settings.STATE.REVIEW, {id: item.id});
 		}
 	}
 };

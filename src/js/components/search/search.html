@@ -11,18 +11,19 @@
   	
   	<!-- search results -->
 	<div class="search-results">
-		<div class="search-result" data-ng-repeat="item in search.result.items">
-			<div class="item-detail">
-				<div class="thumb">
-					<img src="/images/wine-glasses.jpg">
+		<div class="search-result" data-ng-repeat="item in search.result.items" data-ng-click="search.itemSelected(item)">
+			<div class="item-media">
+				<div class="media" data-ng-switch="($index % 2 === 0)">
+					<img class="img" src="/images/wine-white.png" data-ng-switch-when="true">
+					<img class="img" src="/images/wine-red.png" data-ng-switch-default>
 				</div>
 				<div class="detail"></div>
 			</div>
 			<div class="item-content">
 				<h3 class="title">{{item.title_s}}</h3>
 				<h4 class="taster">
-					<span data-ng-if="!!item.taster_name_s" data-translate="SEARCH.REVIEWED_BY" data-translate-values="{taster: item.taster_name_s}"></span>
-					<span data-ng-if="!item.taster_name_s" data-translate="SEARCH.REVIEWED_BY_UNKNOWN"></span>
+					<span data-ng-if="!!item.taster_name_s" data-translate="COMMON.REVIEWED_BY" data-translate-values="{taster: item.taster_name_s}"></span>
+					<span data-ng-if="!item.taster_name_s" data-translate="COMMON.REVIEWED_BY_UNKNOWN"></span>
 				</h4>
 				<p class="description">{{item.description_t[0]}}</p>
 				<div class="points">

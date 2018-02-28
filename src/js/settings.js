@@ -49,7 +49,7 @@ const Settings = {
 		CATEGORIES: {
 			ANY: {
 				name: 'ANY',
-				field: '*'
+				field: ''
 			},
 			TITLE: {
 				name: 'TITLE',

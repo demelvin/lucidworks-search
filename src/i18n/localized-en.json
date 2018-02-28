@@ -2,10 +2,14 @@
 	"COMMON": {
 		"TITLE": "QVino",
 		"BOOKMARKS": "Bookmarks",
+		"BOOKMARK": "Bookmark",
+		"BOOKMARKED": "Bookmarked",
 		"HISTORY": "History",
 		"NOTHING_TO_DISPLAY": "You have no {{displayType}}",
 		"REMOVE_ALL": "clear",
-		"POINTS": "Points"
+		"POINTS": "Points",
+		"REVIEWED_BY": "Reviewed By {{taster}}",
+		"REVIEWED_BY_UNKNOWN": "Reviewed By Anonymous"
 	},
 	"SEARCH": {
 		"PLACEHOLDER": "Search reviews by wine name, winery, or taster",
@@ -14,9 +18,7 @@
 		"WINERY": "Winery",
 		"TASTER": "Taster",
 		"NO_RESULTS": "No results returned",
-		"RESULTS": "Results",
-		"REVIEWED_BY": "Reviewed By {{taster}}",
-		"REVIEWED_BY_UNKNOWN": "Reviewed By Anonymous"
+		"RESULTS": "Results"
 	},
 	"HOME": {
 		"TITLE": "Discover Your Next Wine",

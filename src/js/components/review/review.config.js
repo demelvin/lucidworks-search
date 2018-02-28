@@ -18,7 +18,7 @@ const ReviewConfig = ($stateProvider) => {
 	//configure review routes
 	$stateProvider
 	.state(settings.STATE.REVIEW, {
-		url: '/review',
+		url: '/review/:id',
 		component: 'review',
 		title: 'Review'
 	});

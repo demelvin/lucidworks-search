@@ -9,6 +9,8 @@ $desc-font-size: font-size(18);
 $desc-line-height: 1.4;
 $desc-lines-to-show: 2;
 $rating-height: calculate-rem(20);
+$media-width: calculate-rem(200);
+$media-height: calculate-rem(200);
  
  /* --- search-wrapper -- */
  .search-wrapper {
@@ -39,12 +41,26 @@ $rating-height: calculate-rem(20);
  		/* --- search-result -- */
  		.search-result {
  			@include flex;
+ 			cursor: pointer;
  			
- 			.item-detail {
- 				flex: 20%;
-	 			.thumb {
-	 				position: relative;
-		    		
+ 			&:hover {
+ 				background-color: $grey-xlight;
+ 			}
+ 			
+ 			.item-media {
+ 				@include flex
+ 				justify-content: center;
+ 				flex-wrap: wrap;
+ 				
+	 			.media {
+	 				min-width: 0;
+ 					margin: 5px;
+ 					
+ 					.img {
+ 						width: $media-width;
+ 						max-width: 100%;
+ 						max-height: $media-width;
+ 					}
 	 			}
  			}
  			
