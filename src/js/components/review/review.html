@@ -1,4 +1,7 @@
 <div class="review-wrapper">
+	
+	<div class="loader" data-ng-show="review.isLoading"></div>
+
 	<div class="review-header">
 		<h1>{{review.detail.title_s}}</h1>
 		<h4 class="taster">
@@ -9,6 +12,7 @@
 		<div class="item-info">
 			<div class="info"><i class="fas fa-certificate"></i> {{review.detail.points_s}} / {{review.detail.price_i | currency}}</div>
 			<div class="info">{{review.detail.winery_s}} / {{review.detail.variety_s}}</div>
+			<div class="info">{{review.detail.province_s}}, {{review.detail.country_s}}</div>
 			<div class="info">
 				<a class="bookmark-link" data-ng-click="review.toggleBookmark()" data-ng-switch="review.isBookmarked">
 					<span data-ng-switch-when="false">
@@ -31,6 +35,11 @@
 		<div class="review">
 			<p class="description">{{review.detail.description_t[0]}}</p>
 		</div>
-		
+		<div class="location">
+			<div class="map" 
+			 data-ng-if="!review.isLoading" 
+			 data-review-map data-province="{{review.detail.province_s}}" 
+			 data-country="{{review.detail.country_s}}"></div>
+		</div>
 	</div>
 </div>

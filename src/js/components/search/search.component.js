@@ -33,7 +33,7 @@ const SearchComponent = {
 			this.query = $stateParams.query;
 			this.category = $stateParams.category;
 			this.results = [];
-			this.searching = false;
+			this.isSearching = false;
 		}
 		
 		/**
@@ -54,7 +54,7 @@ const SearchComponent = {
 		 * Performs the search.
 		 */
 		performSearch(){
-			this.searching = true;
+			this.isSearching = true;
 			this.searchService.search(this.query, this.category)
 			.then((result) => {
 				this.result = result;
@@ -62,7 +62,7 @@ const SearchComponent = {
 				this.$log.error('Search Failed. An error was returned.', error);
 			})
 			['finally'](() => {
-				this.searching = false;	
+				this.isSearching = false;	
 			});
 		}
 		

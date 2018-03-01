@@ -4,7 +4,8 @@
 	<div class="search-header">
 		<div class="info">
   			<h1 class="title capitalize">{{search.query}} {{'SEARCH.RESULTS' | translate}}</h1>
-  			<p class="lowerase grey">({{ search.result.total }}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
+  			<p class="lowerase grey" data-ng-hide="search.isSearching">({{ search.result.total }}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
+  			<div class="loader" data-ng-show="search.isSearching"></div>
   		</div>
   	</div>
   	<!-- /search header -->
