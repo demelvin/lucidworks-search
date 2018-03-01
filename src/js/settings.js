@@ -77,8 +77,13 @@ const Settings = {
 				SEARCH: '/apps/qvino/query/qvino',
 				AUTH: '/session?realmName=native'
 			}
-		}
+		},
 		
+		/////////////////////////////////////////////
+		// PAGING
+		/////////////////////////////////////////////
+		PAGING_NUM_OF_PAGES_DISPLAYED: 8,
+		PAGING_PAGE_SIZE: 10
 };
 
 export default Settings;

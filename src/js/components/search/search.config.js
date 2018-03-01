@@ -16,11 +16,12 @@ const SearchConfig = ($stateProvider) => {
 	//configure search routes
 	$stateProvider
 	.state(settings.STATE.SEARCH, {
-		url: '/search/:category/:query',
+		url: '/search/:category/:query/:page',
 		component: 'search',
 		params: {
             query: 'test',
-            category: settings.CATEGORIES.ANY.name.toLowerCase()
+            category: settings.CATEGORIES.ANY.name.toLowerCase(),
+            page: '0'
         },
 		title: 'Search'
 	});

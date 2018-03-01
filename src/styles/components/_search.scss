@@ -132,6 +132,12 @@ $media-height: calculate-rem(200);
  		/* --- /search-result -- */
  	}
  	/* --- /search-results -- */
+ 	
+ 	.search-pager-wrapper {
+ 		margin-top: 25px;
+ 		margin-bottom: 25px;
+ 		text-align: center;
+ 	}
  }
  /* --- /search-wrapper -- */
  

@@ -1,0 +1,21 @@
+/* 
+ * _search-pager.scss
+ * 
+ * Contains styles related to the search pager.
+ */
+ 
+ /* --- search-bar -- */
+ .search-pager {
+	color: $text-color;
+	font-weight: $font-weight-xbold;
+	.action {
+		@include border-radius(4px);
+		padding: 10px;
+		
+		&.selected {
+			color: $white;
+			background-color: $grey;
+		}
+	}
+ }
+ /* --- /search-bar -- */

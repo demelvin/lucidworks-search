@@ -32,6 +32,7 @@ const SearchComponent = {
 			this.$stateParams = $stateParams;
 			this.query = $stateParams.query;
 			this.category = $stateParams.category;
+			this.page = $stateParams.page;
 			this.results = [];
 			this.isSearching = false;
 		}
@@ -55,7 +56,7 @@ const SearchComponent = {
 		 */
 		performSearch(){
 			this.isSearching = true;
-			this.searchService.search(this.query, this.category)
+			this.searchService.search(this.query, this.category, this.page)
 			.then((result) => {
 				this.result = result;
 			}, (error) => {

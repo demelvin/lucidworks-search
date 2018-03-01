@@ -1,7 +1,7 @@
 'use strict';
 
 import settings from '../../../settings';
-import searchTemplate from './search-bar.html';
+import searchBarTemplate from './search-bar.html';
 
 /**
  * Search bar component definition. 
@@ -12,7 +12,7 @@ import searchTemplate from './search-bar.html';
  */
 const SearchBarComponent = {
 	replace: true,
-	template: searchTemplate,
+	template: searchBarTemplate,
 	controllerAs: 'searchBar',
 	controller: class SearchBarController {
 		

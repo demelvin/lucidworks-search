@@ -1,0 +1,20 @@
+<div class="search-pager">
+	<a class="action prev" data-ng-click="searchPager.pageSelected(searchPager.config.current - 1)" data-ng-if="searchPager.config.first !== searchPager.current">
+		<i class="fas fa-angle-left"></i>
+	</a>
+	<a class="action first-page" data-ng-click="searchPager.pageSelected(searchPager.config.first)" data-ng-if="searchPager.config.first !== searchPager.current">
+		<i class="fas fa-angle-double-left"></i>
+	</a>
+	<a class="action page" 
+	 data-ng-class="{'selected': page === searchPager.config.current}" 
+	 data-ng-repeat="page in searchPager.config.pages" 
+	 data-ng-click="searchPager.pageSelected(page)">
+		{{page + 1}}
+	</a>
+	<a class="action last-page" data-ng-click="searchPager.pageSelected(searchPager.config.last)" data-ng-if="searchPager.config.last !== searchPager.current">
+		<i class="fas fa-angle-double-right"></i>
+	</a>
+	<a class="action next" data-ng-click="searchPager.pageSelected(searchPager.config.current + 1)" data-ng-if="searchPager.config.last !== searchPager.current">
+		<i class="fas fa-angle-right"></i>
+	</a>
+</div>

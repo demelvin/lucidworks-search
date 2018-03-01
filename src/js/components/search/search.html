@@ -40,7 +40,10 @@
 				<div class="info-row">{{item.price_i | currency}}</div>
 			</div>
 		</div>
-	</div> 
+	</div>
    	<!-- /search results -->
-   	
+	
+	<div class="search-pager-wrapper" data-ng-if="!search.isSearching">
+		<search-pager data-current="search.page" data-count="search.result.total" data-query="search.query" data-category="search.category"></search-pager>
+	</div>
 </div>

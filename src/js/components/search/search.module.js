@@ -10,10 +10,12 @@ import angular from 'angular';
 import { SearchComponent } from './search.component';
 import { SearchService } from './search.service';
 import { SearchBarModule } from './search-bar/search-bar.module';
+import { SearchPagerModule } from './search-pager/search-pager.module';
 import SearchConfig from './search.config';
 
 const requires = [
-	SearchBarModule
+	SearchBarModule,
+	SearchPagerModule
 ];
 
 export const SearchModule = angular
