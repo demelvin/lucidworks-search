@@ -23,7 +23,7 @@ const run = ($rootScope, $transitions, $http, $log) => {
 	 * Listen for successful transitions and
 	 * update the page title.
 	 */
-	$transitions.onSuccess(true, (transition) => {
+	$transitions.onSuccess({}, (transition) => {
 		
 		$rootScope.pageTitle = DEFAULT_TITLE;
 		

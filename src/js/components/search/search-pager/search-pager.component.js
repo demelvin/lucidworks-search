@@ -102,7 +102,8 @@ const SearchPagerComponent = {
 		 */
 		getLastPageNum() {
 			const pageSize = settings.PAGING_PAGE_SIZE;
-			return (Math.ceil(this.count / pageSize));
+			const lastPageNum = (Math.ceil(this.count / pageSize));
+			return (isNaN(lastPageNum) ? 0 : lastPageNum);
 		}
 		
 		/**

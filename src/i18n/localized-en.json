@@ -1,6 +1,7 @@
 {
 	"COMMON": {
-		"TITLE": "qVINO",
+		"TITLE": "Qvino",
+		"SUB_TITLE": "Wine Reviews",
 		"BOOKMARKS": "Bookmarks",
 		"BOOKMARK": "Bookmark",
 		"BOOKMARKED": "Bookmarked",
@@ -22,6 +23,6 @@
 	},
 	"HOME": {
 		"TITLE": "Discover Your Next Wine",
-		"SUB_TITLE": "Search wine reviews performed by notable tasters"
+		"SUB_TITLE": "Search wine reviews performed by top tasters"
 	}
 }

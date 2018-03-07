@@ -1,4 +1,4 @@
-<div class="search-pager">
+<div class="search-pager" data-ng-if="searchPager.config.last > 0">
 	<a class="action prev" data-ng-click="searchPager.pageSelected(searchPager.config.current - 1)" data-ng-if="searchPager.config.first !== searchPager.current">
 		<i class="fas fa-angle-left"></i>
 	</a>

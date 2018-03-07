@@ -60,11 +60,20 @@
 			    
 		    }
 		    
-		    .title {
-			    align-self: center;
-			    white-space: nowrap;
-			    margin-left: 10px;
-			    font-weight: $font-weight-xbold;
+		    .title-wrapper {
+		    	display: flex;
+		    	flex-direction: column;
+		    	
+		    	.title {
+			    	white-space: nowrap;
+			    	font-weight: $font-weight-xbold;
+		    	}
+		    	
+		    	.sub-title {
+		    		font-size: 14px;
+		    		margin-top: 7px;
+		    	}
+		    	
 		    }
 		}
 	}

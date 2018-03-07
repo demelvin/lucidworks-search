@@ -1,5 +1,5 @@
 <div class="search-bar">
-	<form class="search" data-ng-submit="searchBar.search()">
+	<form class="search" data-ng-submit="searchBar.search($event)">
 		<div>
 			<div class="dd-box" data-ng-click="searchBar.showCategories = !searchBar.showCategories">
 				<button class="dd-btn" type="button" data-translate="{{'SEARCH.' + searchBar.category.name}}"></button>
