@@ -16,6 +16,9 @@ const SearchBarComponent = {
 	controllerAs: 'searchBar',
 	controller: class SearchBarController {
 		
+		/**
+		 * Creates a new SearchBarComponent.
+		 */
 		constructor($state, $transitions, sideNavService, $log){
 			'ngInject';
 			this.$state = $state;

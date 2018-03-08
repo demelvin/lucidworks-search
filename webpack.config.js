@@ -23,7 +23,9 @@ const config = {};
  * 
  * @see https://webpack.js.org/concepts/#entry
  */
-config.entry = (isTest ? void 0 : './src/js/index.js');
+config.entry = (isTest ? void 0 : { 
+	app: './src/js/index.js'
+});
 
 /*
  * Output

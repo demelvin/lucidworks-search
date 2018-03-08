@@ -32,7 +32,6 @@ const NavbarComponent = {
 			this.$transitions = $transitions;
 			this.$log = $log;
 			this.selected = undefined;
-			this.setupListeners();
 		}
 		
 		/**
@@ -40,6 +39,7 @@ const NavbarComponent = {
 		 */
 		$onInit() {
 			this.$log.debug('Navbar.$onInit()');
+			this.setupListeners();
 		}
 		
 		

@@ -140,9 +140,9 @@
 	/* --- /search -- */
 	
 	/* --- media queries -- */
-
-	@include tablet {
 	
+	@include medium-desktop {
+		
 		.nav-search-wrapper {
 			width: 100%;
 			search-bar {
@@ -157,7 +157,10 @@
 		.sub-title {
 			display: none;
 		}
-		
+	}
+
+	@include tablet {
+	
 		.item-text {
 			display: none;		
 		}
