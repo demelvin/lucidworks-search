@@ -63,9 +63,9 @@
 		    .title-wrapper {
 		    	display: flex;
 		    	flex-direction: column;
+		    	white-space: nowrap;
 		    	
 		    	.title {
-			    	white-space: nowrap;
 			    	font-weight: $font-weight-xbold;
 		    	}
 		    	
@@ -138,5 +138,34 @@
 		}
 	}
 	/* --- /search -- */
+	
+	/* --- media queries -- */
+
+	@include tablet {
+	
+		.nav-search-wrapper {
+			width: 100%;
+			search-bar {
+				width: inherit;
+			}
+		}
+		
+		.title {
+			display: none;
+		}
+		
+		.sub-title {
+			display: none;
+		}
+		
+		.item-text {
+			display: none;		
+		}
+		
+		
+	}
+	
+	
+	/* --- /media queries -- */
 }
 /* --- /navbar -- */
