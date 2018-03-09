@@ -4,10 +4,13 @@
   "description": "Lucidworks Coding Challenge",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server  --history-api-fallback",
+    "build": "webpack --bail --progress --profile",
+    "prestart": "npm install",
+    "start": "http-server dist",
+    "pretest": "npm install",
     "test": "karma start",
-    "test-single-run": "karma start ---single-run",
-    "dev": "webpack-dev-server  --history-api-fallback --content-base src",
-    "build": "webpack --bail --progress --profile"
+    "test-single-run": "karma start ---single-run"
   },
   "repository": {
     "type": "git",
@@ -52,6 +55,7 @@
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.11.1",
     "jasmine-core": "^3.1.0",
     "karma": "^2.0.0",
     "karma-chrome-launcher": "^2.2.0",
