@@ -51,7 +51,7 @@ class SearchService {
 			deferred.resolve(result);
 	    }, (errorResponse) => {
 	    	this.$log.error('Failed to perform search. An error was returned', errorResponse);
-	    	deferred.reject();
+	    	deferred.reject('Search Failed. An error was returned.');
 	    });
 		
 		return deferred.promise;

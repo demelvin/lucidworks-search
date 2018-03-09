@@ -7,6 +7,9 @@ import farBookmark from '@fortawesome/fontawesome-free-regular/faBookmark';
 import settings from '../../settings';
 import reviewTemplate from './review.html';
 
+//images
+import wineRedLargeImage from '../../../images/wine-red-lg.png';
+
 //add fonts
 fontawesome.library.add(faCertificate);
 fontawesome.library.add(fasBookmark);
@@ -38,6 +41,7 @@ const ReviewComponent = {
 			this.loadFailed = false;
 			this.isLoading = false;
 			this.isBookmarked = false;
+			this.wineRedLargeImage = wineRedLargeImage;
 		}
 		
 		/**

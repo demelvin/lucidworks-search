@@ -139,6 +139,12 @@ $media-height: calculate-rem(200);
  		margin-bottom: 25px;
  		text-align: center;
  	}
+ 	
+ 	.search-error-wrapper {
+ 		color: $red-xlight;
+ 		margin-bottom: 25px;
+ 		text-align: center;
+ 	}
  }
  /* --- /search-wrapper -- */
  

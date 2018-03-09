@@ -112,5 +112,11 @@ $desc-line-height: 1.4;
 		}
 	}
 	/* --- /detail -- */
+	
+	.review-error-wrapper {
+ 		color: $red-xlight;
+ 		margin: 25px 0;
+ 		text-align: center;
+ 	}
 }
 /* --- /review-wrapper -- */

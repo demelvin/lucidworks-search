@@ -10,7 +10,8 @@
 		"REMOVE_ALL": "clear",
 		"POINTS": "Points",
 		"REVIEWED_BY": "Reviewed By {{taster}}",
-		"REVIEWED_BY_UNKNOWN": "Reviewed By Anonymous"
+		"REVIEWED_BY_UNKNOWN": "Reviewed By Anonymous",
+		"ERROR": "Oops looks like something when wrong. Please try refreshing your browser and try again."
 	},
 	"SEARCH": {
 		"PLACEHOLDER": "Search reviews by wine name, winery, or taster",

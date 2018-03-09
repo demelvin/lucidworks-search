@@ -94,22 +94,22 @@ config.module = {
 		
 		//Images
 		{
-			test: /\.(png|jpeg|jpg|gif)$/,
+			test: /\.(png|jpeg|jpg|gif|svg)$/,
 			use: [
 				{
-					loader: 'file-loader',
+					loader: 'url-loader',
 					options: {
-						name: (isProd ? '[hash].[ext]' : '[name].[ext]'),
-						outputPath: 'images/'
+						fallback: 'file-loader'
 					}	
 				}
 				
-			]
+				]
 		},
 		
 		//Fonts
 		{
 			test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+			exclude: /images/,
 			use: [
 				{
 					loader: 'file-loader',

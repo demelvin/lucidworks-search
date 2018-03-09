@@ -5,6 +5,10 @@ import fontawesome from '@fortawesome/fontawesome';
 import faCertificate from '@fortawesome/fontawesome-free-solid/faCertificate';
 import searchTemplate from './search.html';
 
+//images
+import whiteWineImage from '../../../images/wine-white.png';
+import redWineImage from '../../../images/wine-red.png';
+
 //add fonts
 fontawesome.library.add(faCertificate);
 
@@ -35,6 +39,9 @@ const SearchComponent = {
 			this.page = $stateParams.page;
 			this.results = [];
 			this.isSearching = false;
+			this.searchFailed = false;
+			this.whiteWineImage = whiteWineImage;
+			this.redWineImage = redWineImage;
 		}
 		
 		/**
@@ -61,6 +68,7 @@ const SearchComponent = {
 				this.result = result;
 			}, (error) => {
 				this.$log.error('Search Failed. An error was returned.', error);
+				this.searchFailed = true;
 			})
 			['finally'](() => {
 				this.isSearching = false;	

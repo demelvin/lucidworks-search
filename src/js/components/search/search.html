@@ -4,19 +4,19 @@
 	<div class="search-header">
 		<div class="info">
   			<h1 class="title capitalize">{{search.query}} {{'SEARCH.RESULTS' | translate}}</h1>
-  			<p class="lowerase grey" data-ng-hide="search.isSearching">({{ search.result.total }}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
+  			<p class="lowerase grey" data-ng-hide="search.isSearching">({{search.result.total || 0}}) {{search.query}} {{search.category}} {{'SEARCH.RESULTS' | translate}}</p>
   			<div class="loader" data-ng-show="search.isSearching"></div>
   		</div>
   	</div>
   	<!-- /search header -->
   	
   	<!-- search results -->
-	<div class="search-results">
+	<div class="search-results" data-ng-if="!search.searchFailed">
 		<div class="search-result" data-ng-repeat="item in search.result.items" data-ng-click="search.itemSelected(item)">
 			<div class="item-media">
 				<div class="media" data-ng-switch="($index % 2 === 0)">
-					<img class="img" src="/images/wine-white.png" data-ng-switch-when="true">
-					<img class="img" src="/images/wine-red.png" data-ng-switch-default>
+					<img class="img" data-ng-src="{{search.whiteWineImage}}" data-ng-switch-when="true">
+					<img class="img" data-ng-src="{{search.redWineImage}}" data-ng-switch-default>
 				</div>
 				<div class="detail"></div>
 			</div>
@@ -43,7 +43,15 @@
 	</div>
    	<!-- /search results -->
 	
-	<div class="search-pager-wrapper" data-ng-if="!search.isSearching">
+	<div class="search-pager-wrapper" data-ng-if="!search.isSearching && !search.searchFailed">
 		<search-pager data-current="search.page" data-count="search.result.total" data-query="search.query" data-category="search.category"></search-pager>
 	</div>
+	
+	
+  	<!-- error -->
+  	<div class="search-error-wrapper" data-ng-if="search.searchFailed">
+  		<h3 data-translate="COMMON.ERROR"></h3>
+  	</div>
+  	<!-- /error -->
+  	
 </div>
