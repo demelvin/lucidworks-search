@@ -60,7 +60,8 @@ npm test
 ```
 
 
-### Resources
+## Resources
+
 [Lucidworks][lucidworks]
 
 [Fusion Server 4.0.0][fusion server]
