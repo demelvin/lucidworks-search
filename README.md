@@ -17,7 +17,7 @@ and its package manager ([npm]) installed. You can get them from [here][node].
 
 The latest version of [Fusion Server][fusion server] also needs to be installed, started. The [Quick Start][fusion quick start] is an excellent resource for this. 
 
-Once started the qvino application needs to be imported. This is will provide the search results. Find instructions on how to do that [here][fusion import].
+Once started the [Qvino][qvino] application needs to be imported. This is will provide the search results. Find instructions on how to do that [here][fusion import].
 
 ### Clone `lucidworks-search`
 
@@ -34,7 +34,9 @@ npm install
 ```
 
 ### Setup Fusion
-Download, Install, and Setup the Fusion Server by following the [Quick Start][fusion quick start] guide.
+Download, Install, and Setup Fusion by following the [Quick Start][fusion quick start] guide.
+
+Once that is up and running you will need to [import][fusion import] the [Qvino][qvino] Fusion application.
 
 
 ### Run the Application
@@ -107,3 +109,4 @@ npm test
 [local-app-url]: http://localhost:8000/
 [jasmine]: https://jasmine.github.io/
 [karma]: https://karma-runner.github.io/
+[qvino]: https://github.com/demelvin/lucidworks-search/raw/master/qvino.zip
