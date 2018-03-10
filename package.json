@@ -4,13 +4,14 @@
   "description": "Lucidworks Coding Challenge",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run-script build",
     "dev": "webpack-dev-server  --history-api-fallback",
     "build": "webpack --bail --progress --profile",
     "prestart": "npm install",
     "start": "http-server dist",
     "pretest": "npm install",
-    "test": "karma start",
-    "test-single-run": "karma start ---single-run"
+    "test": "karma start --watch false --single-run true",
+    "test-watch": "karma --watch true --single-run false"
   },
   "repository": {
     "type": "git",
